@@ -1,16 +1,30 @@
 package pr.dwkim.themoviedatabase.viewmodel
 
 import androidx.hilt.lifecycle.ViewModelInject
+import pr.dwkim.themoviedatabase.model.MovieList
 import pr.dwkim.themoviedatabase.repository.IRepository
 import pr.dwkim.themoviedatabase.util.RxViewModel
+import pr.dwkim.themoviedatabase.util.ScheduleProvider
 import pr.dwkim.themoviedatabase.util.with
 
 class MovieViewModel @ViewModelInject constructor(
-    private val repository: IRepository
+    private val repository: IRepository,
+    private val scheduleProvider: ScheduleProvider
 ) : RxViewModel() {
     fun getPopularList(){
-//        launch {
-//            repository.getPopularList(1)
-//        }
+        launch {
+            repository.getPopularList(1)
+                .with(scheduleProvider)
+                .subscribe(
+                    { result ->
+                        result.data?.results?.map { movie ->
+                            MovieList(movie)
+                        }
+                    },
+                    { throwable ->
+
+                    }
+                )
+        }
     }
 }

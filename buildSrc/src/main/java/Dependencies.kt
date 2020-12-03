@@ -8,7 +8,7 @@ object Apps {
 }
 
 object Versions {
-    const val gradle = "4.1.0"
+    const val gradle = "4.1.1"
     const val kotlin = "1.4.20"
     const val googleService = "4.3.3"
     const val googlePlayPublisher = "2.8.0"
@@ -21,7 +21,9 @@ object Versions {
     const val constraintLayout = "2.0.0-beta6"
     const val arch = "2.2.0"
     const val appcompat = "1.1.0"
-    const val androidxCoreKtx = "1.2.0"
+    const val androidxCore = "1.3.2"
+    const val androidxFragment = "1.2.5"
+    const val androidxActivity = "1.1.0"
     const val recyclerView = "1.2.0-alpha02"
     const val swipeRefreshLayout = "1.0.0"
     const val material = "1.2.0-alpha05"
@@ -71,7 +73,9 @@ object Libs {
     const val ankoDesign = "org.jetbrains.anko:anko-design:${Versions.anko}"
 
     const val appCompat = "androidx.appcompat:appcompat:${Versions.appcompat}"
-    const val androidXCoreKtx = "androidx.core:core-ktx:${Versions.androidxCoreKtx}"
+    const val androidXCoreKtx = "androidx.core:core-ktx:${Versions.androidxCore}"
+    const val androidXActivityKtx = "androidx.activity:activity-ktx:${Versions.androidxActivity}"
+    const val androidXFragmentKtx = "androidx.fragment:fragment-ktx:${Versions.androidxFragment}"
     const val androidXLifeCycleLiveData = "androidx.lifecycle:lifecycle-livedata:${Versions.arch}"
     const val androidXLifeCycleExtension = "androidx.lifecycle:lifecycle-extensions:${Versions.arch}"
     const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"

@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.disposables.Disposable
 
-abstract class RxViewModel : ViewModel() {
+open class RxViewModel : ViewModel() {
     private val disposables = CompositeDisposable()
 
     fun launch(job: () -> Disposable) {

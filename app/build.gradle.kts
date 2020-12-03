@@ -64,6 +64,8 @@ dependencies {
     kapt(Libs.hiltViewModelCompiler)
 
     implementation(Libs.androidXCoreKtx)
+    implementation(Libs.androidXActivityKtx)
+    implementation(Libs.androidXFragmentKtx)
     implementation(Libs.androidXLifeCycleLiveData)
     implementation(Libs.androidXLifeCycleExtension)
 
