@@ -9,9 +9,8 @@ class MovieViewModel @ViewModelInject constructor(
     private val repository: IRepository
 ) : RxViewModel() {
     fun getPopularList(){
-        launch {
-            repository.getPopularList(1)
-                .with
-        }
+//        launch {
+//            repository.getPopularList(1)
+//        }
     }
 }

@@ -1,15 +1,15 @@
 object Apps {
     const val applicationId = "pr.dwkim.themoviedatabase"
-    const val compileSdk = 29
-    const val targetSdk = 29
+    const val compileSdk = 30
+    const val targetSdk = 30
     const val minSdk = 26
-    const val versionCode = 62
-    const val versionName = "1.8.0"
+    const val versionCode = 1
+    const val versionName = "1.0.0"
 }
 
 object Versions {
     const val gradle = "4.1.0"
-    const val kotlin = "1.3.72"
+    const val kotlin = "1.4.20"
     const val googleService = "4.3.3"
     const val googlePlayPublisher = "2.8.0"
     const val firebaseCrashlyticsGradle = "2.0.0-beta04"
@@ -34,7 +34,7 @@ object Versions {
 
     const val glide = "4.11.0"
 
-    const val retrofit2 = "2.8.1"
+    const val retrofit2 = "2.9.0"
     const val okhttp = "4.4.1"
     const val gson = "2.8.6"
 
@@ -98,7 +98,7 @@ object Libs {
 
     const val retrofit2 = "com.squareup.retrofit2:retrofit:${Versions.retrofit2}"
     const val retrofit2Gson = "com.squareup.retrofit2:converter-gson:${Versions.retrofit2}"
-    const val retrofit2RxJava = "com.squareup.retrofit2:adapter-rxjava2:${Versions.retrofit2}"
+    const val retrofit2RxJava = "com.squareup.retrofit2:adapter-rxjava3:${Versions.retrofit2}"
     const val retrofit2Logging = "com.squareup.okhttp3:logging-interceptor:${Versions.okhttp}"
     const val gson = "com.google.code.gson:gson:${Versions.gson}"
 

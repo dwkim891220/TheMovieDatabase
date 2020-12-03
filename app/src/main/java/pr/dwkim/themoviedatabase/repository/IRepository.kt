@@ -4,7 +4,7 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
-import io.reactivex.Single
+import io.reactivex.rxjava3.core.Single
 import pr.dwkim.themoviedatabase.repository.remote.RepositoryImpl
 import pr.dwkim.themoviedatabase.repository.remote.result.BaseResult
 import pr.dwkim.themoviedatabase.repository.remote.result.DetailResult

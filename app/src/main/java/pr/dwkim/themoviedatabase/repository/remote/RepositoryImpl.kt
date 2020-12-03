@@ -1,6 +1,6 @@
 package pr.dwkim.themoviedatabase.repository.remote
 
-import io.reactivex.Single
+import io.reactivex.rxjava3.core.Single
 import pr.dwkim.themoviedatabase.repository.IRepository
 import pr.dwkim.themoviedatabase.repository.TmdbApiService
 import pr.dwkim.themoviedatabase.repository.remote.result.BaseResult

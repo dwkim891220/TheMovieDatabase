@@ -1,9 +1,11 @@
+import org.jetbrains.kotlin.konan.properties.Properties
+import java.io.FileInputStream
+
 plugins {
     id("com.android.application")
     id("dagger.hilt.android.plugin")
     kotlin("android")
     kotlin("kapt")
-    kotlin("android.extensions")
 }
 
 android {
@@ -17,8 +19,12 @@ android {
     }
 
     buildTypes {
+        val keystoreProperties = Properties().apply {
+            load(FileInputStream(rootProject.file("key.properties")))
+        }
+
         this.forEach { buildType ->
-            buildType.buildConfigField("String", "ApiKey", "7c89f0483dfba44fb752ae6d50393fd0")
+            buildType.buildConfigField("String", "ApiKey", keystoreProperties["tmdb_api_key"] as String)
         }
 
         named("release") {
@@ -35,10 +41,10 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-}
 
-androidExtensions {
-    isExperimental = true
+    buildFeatures {
+        dataBinding = true
+    }
 }
 
 dependencies {
