@@ -26,7 +26,7 @@ object NetworkModule {
         @ApplicationContext context: Context
     ): TmdbApiService =
         Retrofit.Builder()
-            .baseUrl("https://api.themoviedb.org/4/")
+            .baseUrl("https://api.themoviedb.org/3/")
             .client(
                 OkHttpClient.Builder().apply {
                     readTimeout(30, TimeUnit.SECONDS)

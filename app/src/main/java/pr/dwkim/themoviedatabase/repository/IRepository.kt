@@ -21,7 +21,7 @@ abstract class RepositoryModule{
 }
 
 interface IRepository {
-    fun getPopularList(page: Int): Single<BaseResult<PopularListResult>>
+    fun getPopularList(page: Int): Single<PopularListResult>
     fun getDetail(movieId: Int): Single<BaseResult<DetailResult>>
     fun getVideos(movieId: Int): Single<BaseResult<VideoResult>>
 }

@@ -7,6 +7,7 @@ import dagger.hilt.android.components.ApplicationComponent
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Scheduler
 import io.reactivex.rxjava3.schedulers.Schedulers
+import javax.inject.Inject
 import javax.inject.Singleton
 
 @InstallIn(ApplicationComponent::class)
@@ -23,7 +24,7 @@ interface ScheduleProvider {
     fun computation(): Scheduler
 }
 
-class ApplicationSchedulerProvider : ScheduleProvider {
+class ApplicationSchedulerProvider @Inject constructor() : ScheduleProvider {
     override fun io() = Schedulers.io()
     override fun ui(): Scheduler? = AndroidSchedulers.mainThread()
     override fun computation() = Schedulers.computation()

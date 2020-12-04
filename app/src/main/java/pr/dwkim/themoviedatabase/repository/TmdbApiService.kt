@@ -18,7 +18,7 @@ interface TmdbApiService {
     fun getPopularList(
         @Query(encoded = true, value = API_KEY) apiKey: String = BuildConfig.ApiKey,
         @Query(encoded = true, value = "page") page: Int
-    ): Single<BaseResult<PopularListResult>>
+    ): Single<PopularListResult>
 
     @GET("$MOVIE/{movie_id}")
     fun getDetail(

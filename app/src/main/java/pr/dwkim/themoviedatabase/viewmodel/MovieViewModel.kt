@@ -6,6 +6,7 @@ import pr.dwkim.themoviedatabase.repository.IRepository
 import pr.dwkim.themoviedatabase.util.RxViewModel
 import pr.dwkim.themoviedatabase.util.ScheduleProvider
 import pr.dwkim.themoviedatabase.util.with
+import javax.inject.Inject
 
 class MovieViewModel @ViewModelInject constructor(
     private val repository: IRepository,
@@ -17,7 +18,7 @@ class MovieViewModel @ViewModelInject constructor(
                 .with(scheduleProvider)
                 .subscribe(
                     { result ->
-                        result.data?.results?.map { movie ->
+                        result?.results?.map { movie ->
                             MovieList(movie)
                         }
                     },

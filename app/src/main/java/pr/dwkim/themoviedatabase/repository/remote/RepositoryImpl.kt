@@ -12,7 +12,7 @@ import javax.inject.Inject
 class RepositoryImpl @Inject constructor(
     private val apiService: TmdbApiService
 ): IRepository {
-    override fun getPopularList(page: Int): Single<BaseResult<PopularListResult>> =
+    override fun getPopularList(page: Int): Single<PopularListResult> =
         apiService.getPopularList(page = page)
 
     override fun getDetail(movieId: Int): Single<BaseResult<DetailResult>> =
