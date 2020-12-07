@@ -1,6 +1,8 @@
 package pr.dwkim.themoviedatabase.repository.remote.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
 data class Movie(
     @SerializedName("id") val id: Int? = null,
@@ -23,3 +25,6 @@ data class Video(
     @SerializedName("id") val id: String? = null,
     @SerializedName("key") val key: String? = null
 )
+
+@Parcelize
+class Video2(val data: Int): Parcelable

@@ -6,6 +6,7 @@ plugins {
     id("dagger.hilt.android.plugin")
     kotlin("android")
     kotlin("kapt")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -51,7 +52,6 @@ dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation(Libs.kotlin)
     implementation(Libs.ankoCommon)
-    implementation(Libs.ankoDesign)
     implementation(Libs.appCompat)
     implementation(Libs.constraintLayout)
     implementation(Libs.recyclerView)

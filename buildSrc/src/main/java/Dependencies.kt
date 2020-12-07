@@ -30,7 +30,6 @@ object Versions {
     const val webkit = "1.2.0"
     const val playServiceAds = "19.0.1"
 
-    const val koin = "2.0.1"
     const val rxJava = "3.0.7"
     const val rxAndroid = "3.0.0"
 
@@ -70,7 +69,6 @@ object Libs {
 
     const val kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
     const val ankoCommon = "org.jetbrains.anko:anko-commons:${Versions.anko}"
-    const val ankoDesign = "org.jetbrains.anko:anko-design:${Versions.anko}"
 
     const val appCompat = "androidx.appcompat:appcompat:${Versions.appcompat}"
     const val androidXCoreKtx = "androidx.core:core-ktx:${Versions.androidxCore}"
@@ -94,8 +92,6 @@ object Libs {
 
     const val rxJava = "io.reactivex.rxjava3:rxjava:${Versions.rxJava}"
     const val rxAndroid = "io.reactivex.rxjava3:rxandroid:${Versions.rxAndroid}"
-
-    const val koin = "org.koin:koin-android-viewmodel:${Versions.koin}"
 
     const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
     const val glideCompiler = "com.github.bumptech.glide:compiler:${Versions.glide}"

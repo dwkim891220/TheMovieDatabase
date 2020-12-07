@@ -1,5 +1,6 @@
 package pr.dwkim.themoviedatabase.viewmodel
 
+import android.os.Parcelable
 import androidx.hilt.lifecycle.ViewModelInject
 import pr.dwkim.themoviedatabase.model.MovieList
 import pr.dwkim.themoviedatabase.repository.IRepository

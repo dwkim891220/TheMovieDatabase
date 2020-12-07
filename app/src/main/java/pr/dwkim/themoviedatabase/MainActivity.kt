@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import dagger.hilt.android.AndroidEntryPoint
+import org.jetbrains.anko.browse
 import pr.dwkim.themoviedatabase.databinding.ActivityMainBinding
 import pr.dwkim.themoviedatabase.viewmodel.MovieViewModel
 

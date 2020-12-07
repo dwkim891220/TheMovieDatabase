@@ -5,6 +5,7 @@ buildscript {
         google()
         jcenter()
     }
+
     dependencies {
         classpath(Libs.gradle)
         classpath(Libs.gradlePlugin)
