@@ -1,7 +1,9 @@
 package pr.dwkim.themoviedatabase.view
 
+import android.graphics.Rect
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -10,6 +12,7 @@ import pr.dwkim.themoviedatabase.R
 import pr.dwkim.themoviedatabase.databinding.ActivityMainBinding
 import pr.dwkim.themoviedatabase.util.WrapperLayoutManager
 import pr.dwkim.themoviedatabase.util.initDefault
+import pr.dwkim.themoviedatabase.util.toPixel
 import pr.dwkim.themoviedatabase.view.adapter.MovieListAdapter
 import pr.dwkim.themoviedatabase.viewmodel.MovieViewModel
 
@@ -36,7 +39,20 @@ class MainActivity : AppCompatActivity() {
     private fun initLayouts(){
         binding.list.initDefault(
             context = this,
-            adapter = MovieListAdapter(this@MainActivity)
+            adapter = MovieListAdapter(this@MainActivity),
+            decoration = DividerItemDecorator()
         )
+    }
+
+    inner class DividerItemDecorator : RecyclerView.ItemDecoration() {
+        override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
+            super.getItemOffsets(outRect, view, parent, state)
+
+            val padding = 8.toPixel(view.context)
+
+            outRect.left = padding
+            outRect.top = padding
+            outRect.right = padding
+        }
     }
 }

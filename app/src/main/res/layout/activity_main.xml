@@ -26,6 +26,10 @@
             android:id="@+id/list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingBottom="16dp"
+            tools:listitem="@layout/i_movie_list"
+            tools:itemCount="5"
             bind:bind_item="@{viewModel.movieList}"
             bind:show="@{viewModel.movieListLayoutStatus == ListLayoutState.List}"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
