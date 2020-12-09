@@ -11,10 +11,13 @@ open class DataBoundViewHolder(
     binding: ViewDataBinding
 ) : RecyclerView.ViewHolder(binding.root), LifecycleOwner {
     private val lifecycleRegistry = LifecycleRegistry(this)
+    private val _binding: ViewDataBinding = binding
 
     init {
         lifecycleRegistry.currentState = Lifecycle.State.INITIALIZED
     }
+
+    fun getDataBinding(): ViewDataBinding = _binding
 
     fun created(){
         lifecycleRegistry.currentState = Lifecycle.State.CREATED

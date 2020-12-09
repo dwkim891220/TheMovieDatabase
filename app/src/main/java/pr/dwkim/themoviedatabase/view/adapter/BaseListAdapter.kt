@@ -40,7 +40,7 @@ abstract class BaseListAdapter<T>(
         }
 
         bind(holder, position)
-        holder.binding.executePendingBindings()
+        holder.getDataBinding().executePendingBindings()
     }
 
     protected abstract fun bind(holder: DataBoundViewHolder, position: Int)

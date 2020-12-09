@@ -2,7 +2,6 @@ package pr.dwkim.themoviedatabase.util
 
 import android.content.Context
 import android.graphics.Typeface
-import android.graphics.drawable.Drawable
 import android.text.ParcelableSpan
 import android.text.Spannable
 import android.text.SpannableStringBuilder
@@ -17,6 +16,8 @@ import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.rxjava3.core.Single
 import pr.dwkim.themoviedatabase.R
+import pr.dwkim.themoviedatabase.view.util.ListLayoutState
+import pr.dwkim.themoviedatabase.view.viewholder.DataBoundViewHolder
 
 fun <T> Single<T>.with(schedulerProvider: ScheduleProvider): Single<T> =
     observeOn(schedulerProvider.ui())
@@ -107,7 +108,7 @@ class BoldSpan(
 
 fun RecyclerView.initDefault(
     context: Context?,
-    adapter: RecyclerView.Adapter<RecyclerView.ViewHolder>,
+    adapter: RecyclerView.Adapter<DataBoundViewHolder>,
     orientation: Int = RecyclerView.VERTICAL,
     layoutManager: RecyclerView.LayoutManager = WrapperLayoutManager(context, orientation),
     scrollListener: RecyclerView.OnScrollListener? = null,
@@ -125,7 +126,7 @@ fun RecyclerView.initDefault(
 private fun initRecyclerView(
     recyclerView: RecyclerView,
     lm: RecyclerView.LayoutManager,
-    pAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>,
+    pAdapter: RecyclerView.Adapter<DataBoundViewHolder>,
     scrollListener: RecyclerView.OnScrollListener? = null,
     decoration: RecyclerView.ItemDecoration? = null
 ){
@@ -156,6 +157,9 @@ fun FragmentTransaction.setSlideAnimation(): FragmentTransaction =
         R.anim.slide_in_left,
         R.anim.slide_out_right
     )
+
+fun <T> List<T>.getListLayoutState(): ListLayoutState =
+    if(this.isNullOrEmpty()) ListLayoutState.Empty else ListLayoutState.List
 
 @Suppress("UNCHECKED_CAST")
 fun <T> Fragment.argument(key: String) = lazy { arguments?.get(key) as T}
