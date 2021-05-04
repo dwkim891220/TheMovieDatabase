@@ -5,8 +5,7 @@ import androidx.recyclerview.widget.RecyclerView
 import pr.dwkim.themoviedatabase.view.viewholder.DataBoundViewHolder
 
 abstract class BaseListAdapter<T>(
-    private val needInfiniteScroll: Boolean = false,
-    private val infiniteScrollListener: InfiniteScrollListener? = null
+    private val infiniteScrollListener: (() -> Unit)? = null
 ) : RecyclerView.Adapter<DataBoundViewHolder>() {
     val dataList: ArrayList<T> = arrayListOf()
 
@@ -35,8 +34,8 @@ abstract class BaseListAdapter<T>(
     protected abstract fun createBinding(parent: ViewGroup, viewType: Int): DataBoundViewHolder
 
     override fun onBindViewHolder(holder: DataBoundViewHolder, position: Int) {
-        if(needInfiniteScroll && position == itemCount - 10 ){
-            infiniteScrollListener?.onLoadMore()
+        if(infiniteScrollListener != null && position == itemCount - 10 ){
+            infiniteScrollListener.invoke()
         }
 
         bind(holder, position)
@@ -58,8 +57,4 @@ abstract class BaseListAdapter<T>(
     }
 
     override fun getItemCount(): Int = dataList.size
-}
-
-interface InfiniteScrollListener{
-    fun onLoadMore()
 }

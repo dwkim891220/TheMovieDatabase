@@ -16,11 +16,18 @@ class MovieViewModel @ViewModelInject constructor(
     val movieList = MutableLiveData<List<MovieList>>()
     val movieListLoading = MutableLiveData<Boolean>()
     val movieListLayoutStatus = MutableLiveData(ListLayoutState.List)
+    private var movieListPage = 1
+
+    fun refreshPopularList(){
+        movieListPage = 1
+        movieListLayoutStatus.value = ListLayoutState.Empty
+        movieListLoading.value = false
+    }
 
     fun getPopularList(){
         movieListLoading.value = true
         launch {
-            repository.getPopularList(1)
+            repository.getPopularList(movieListPage)
                 .with(scheduleProvider)
                 .subscribe(
                     { result ->
@@ -33,6 +40,7 @@ class MovieViewModel @ViewModelInject constructor(
                         movieList.value = list
                         movieListLayoutStatus.value = list?.getListLayoutState()
                         movieListLoading.value = false
+                        movieListPage++
                     },
                     { throwable ->
                         states.value = ErrorState(throwable)

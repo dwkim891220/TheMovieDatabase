@@ -19,6 +19,7 @@ import pr.dwkim.themoviedatabase.viewmodel.MovieViewModel
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private lateinit var listAdapter: MovieListAdapter
     private val viewModel: MovieViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,11 +38,26 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initLayouts(){
+        listAdapter =
+            MovieListAdapter(
+                infiniteScrollListener = {
+                    viewModel.getPopularList()
+                },
+                this@MainActivity
+            )
+
         binding.list.initDefault(
             context = this,
-            adapter = MovieListAdapter(this@MainActivity),
+            adapter = listAdapter,
             decoration = DividerItemDecorator()
         )
+
+        binding.srl.setOnRefreshListener {
+            binding.srl.isRefreshing = false
+            listAdapter.clear()
+            viewModel.refreshPopularList()
+            viewModel.getPopularList()
+        }
     }
 
     inner class DividerItemDecorator : RecyclerView.ItemDecoration() {

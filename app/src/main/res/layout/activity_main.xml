@@ -22,15 +22,20 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             bind:show="@{viewModel.movieListLayoutStatus == ListLayoutState.Empty}"/>
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/list"
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/srl"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:clipToPadding="false"
-            android:paddingBottom="16dp"
-            tools:listitem="@layout/i_movie_list"
-            tools:itemCount="5"
-            bind:bind_item="@{viewModel.movieList}"
-            bind:show="@{viewModel.movieListLayoutStatus == ListLayoutState.List}"/>
+            android:layout_height="match_parent">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:paddingBottom="16dp"
+                tools:listitem="@layout/i_movie_list"
+                tools:itemCount="5"
+                bind:bind_item="@{viewModel.movieList}"
+                bind:show="@{viewModel.movieListLayoutStatus == ListLayoutState.List}"/>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

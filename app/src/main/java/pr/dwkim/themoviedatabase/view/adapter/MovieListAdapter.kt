@@ -11,8 +11,11 @@ import pr.dwkim.themoviedatabase.view.viewholder.MovieListViewHolder
 import java.lang.RuntimeException
 
 class MovieListAdapter(
-    private val lifecycleOwner: LifecycleOwner,
-): BaseListAdapter<BaseMovie>() {
+    infiniteScrollListener: () -> Unit,
+    private val lifecycleOwner: LifecycleOwner
+): BaseListAdapter<BaseMovie>(
+    infiniteScrollListener = infiniteScrollListener
+) {
     override fun getItemViewType(position: Int): Int =
         when(dataList[position]) {
             is MovieList -> MovieListType.Item.ordinal
